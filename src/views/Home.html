@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link type="text/css" rel='stylesheet' href="tailwind.css"/>
+</head>
+<body>
+<main class="w-full h-screen flex justify-center items-center ">
+    <form class="w-1/4 h-1/2 shadow-md flex justify-center items-center flex-col" action="/image-process" method="GET">
+        <div class="w-full px-8 mb-4">
+            <div class="text-center text-3xl tracking-wide mb-8">What images are you going to optimize?</div>
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="width">
+                Image File Name:
+            </label>
+            <select name="filename"
+                    class="block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="filename">
+                <option value="encenadaport">encenadaport</option>
+                <option value="fjord">fjord</option>
+                <option value="icelandwaterfall">icelandwaterfall</option>
+                <option value="palmtunnel">palmtunnel</option>
+                <option value="santamonica">santamonica</option>
+            </select>
+        </div>
+        <div class="w-full px-8 mb-4">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="width">
+                Width:
+            </label>
+            <input required
+                   class="mb-4 appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                   id="width" name="width" type="text" placeholder="100">
+
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="height">
+                Height:
+            </label>
+            <input required
+                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                   id="height" type="text" name="height" placeholder="100">
+        </div>
+        <div class="w-full px-8 mb-4 flex justify-center items-center flex-col gap-4">
+            <input type="submit" value="Submit"
+                   class="w-full bg-green-500 hover:bg-green-700
+                   border:none text-white font-bold py-2 px-4 rounded">
+            <a href="/image-process-all"
+               class="mb-4 w-full text-center bg-purple-500 hover:bg-purple-700 border:none text-white font-bold py-2 px-4 rounded"
+            >
+                    Optimized all Images
+            </a>
+        </div>
+        <div class="mt-8 text-red-500"></div>
+    </form>
+</main>
+</body>
+</html>

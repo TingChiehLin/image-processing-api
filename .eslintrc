@@ -1,0 +1,7 @@
+{
+  "lint": "eslint",
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"]
+  }
+}
