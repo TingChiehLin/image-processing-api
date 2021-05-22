@@ -17,7 +17,7 @@ const writeData = async (imageData: DataFormat): Promise<sharp.OutputInfo | unde
                 .toFile(`thumb/${imageData.fileName}-${imageData.width}-${imageData.height}.jpg`);
            return result
         } else {
-            const result =  await sharp(`thumb/${imageData.fileName}-${imageData.width}-${imageData.height}.jpg`)
+            const result =  await sharp(`images/${imageData.fileName}.jpg`)
                 .resize(imageData.width, imageData.height, {fit: "contain"})
                 .jpeg({quality: 100})
                 .toFile(`thumb/${imageData.fileName}-${imageData.width}-${imageData.height}.jpg`);

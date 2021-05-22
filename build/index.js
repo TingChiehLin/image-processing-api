@@ -9,7 +9,7 @@ var index_1 = __importDefault(require("./routes/index"));
 var path_1 = __importDefault(require("path"));
 var fs_1 = __importDefault(require("fs"));
 exports.app = express_1.default();
-var port = 3000;
+var port = 3002;
 var dir = './thumb';
 if (!fs_1.default.existsSync(dir)) {
     fs_1.default.mkdirSync(dir);

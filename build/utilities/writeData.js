@@ -58,7 +58,7 @@ var writeData = function (imageData) { return __awaiter(void 0, void 0, void 0, 
             case 2:
                 result = _a.sent();
                 return [2 /*return*/, result];
-            case 3: return [4 /*yield*/, sharp_1.default("thumb/" + imageData.fileName + "-" + imageData.width + "-" + imageData.height + ".jpg")
+            case 3: return [4 /*yield*/, sharp_1.default("images/" + imageData.fileName + ".jpg")
                     .resize(imageData.width, imageData.height, { fit: "contain" })
                     .jpeg({ quality: 100 })
                     .toFile("thumb/" + imageData.fileName + "-" + imageData.width + "-" + imageData.height + ".jpg")];

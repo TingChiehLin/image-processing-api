@@ -46,25 +46,20 @@ var writeData_1 = __importDefault(require("../utilities/writeData"));
 var getRandomInt_1 = __importDefault(require("../utilities/getRandomInt"));
 //Test single image file
 describe("image file", function () {
-    var height = getRandomInt_1.default(1500);
     var width = getRandomInt_1.default(1500);
-    it('should generate image with random width and height on imageProcess function correctly', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var testFile;
+    var height = getRandomInt_1.default(1500);
+    it('should generate testFile image with random width and height on imageProcess function correctly', function (done) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, supertest_1.default(index_1.app).get("/image-process?filename=test&width=" + width + "&height=" + height).send()];
                 case 1:
-                    testFile = _a.sent();
-                    expect(fileExist_1.default("testFile-" + width + "-" + height + ".jpg")).toBe(true);
+                    _a.sent();
+                    expect(fileExist_1.default("thumb/test-" + width + "-" + height + ".jpg")).toBe(true);
                     done();
                     return [2 /*return*/];
             }
         });
     }); });
-    it('should process test file expects correctly', function () {
-        var testFile = fileExist_1.default('thumb/test.jpg');
-        expect(testFile).toBe(true);
-    });
     it('should run correctly on writeData function correctly', function (done) { return __awaiter(void 0, void 0, void 0, function () {
         var imageData;
         return __generator(this, function (_a) {
