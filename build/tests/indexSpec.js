@@ -46,14 +46,16 @@ var writeData_1 = __importDefault(require("../utilities/writeData"));
 var getRandomInt_1 = __importDefault(require("../utilities/getRandomInt"));
 //Test single image file
 describe("image file", function () {
-    it('should run correctly on imageProcess function correctly', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var result;
+    var height = getRandomInt_1.default(1500);
+    var width = getRandomInt_1.default(1500);
+    it('should generate image with random width and height on imageProcess function correctly', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var testFile;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, supertest_1.default(index_1.app).get("/image-process?filename=test&width=" + getRandomInt_1.default(1000) + "&height=" + getRandomInt_1.default(1000)).send()];
+                case 0: return [4 /*yield*/, supertest_1.default(index_1.app).get("/image-process?filename=test&width=" + width + "&height=" + height).send()];
                 case 1:
-                    result = _a.sent();
-                    expect(result).toBeTruthy(true);
+                    testFile = _a.sent();
+                    expect(fileExist_1.default("testFile-" + width + "-" + height + ".jpg")).toBe(true);
                     done();
                     return [2 /*return*/];
             }

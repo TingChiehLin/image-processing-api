@@ -10,7 +10,7 @@ imageProcess.get('/', async (req: express.Request, res: express.Response, next: 
         const height = Number(req.query.height) || null;
 
         if (height && width && fileName) {
-            const result = await writeData({
+            await writeData({
                 fileName,
                 width,
                 height

@@ -42,44 +42,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var path_1 = __importDefault(require("path"));
 var writeData_1 = __importDefault(require("../utilities/writeData"));
-var fileExist_1 = __importDefault(require("../utilities/fileExist"));
-var resizeImage_1 = __importDefault(require("../utilities/resizeImage"));
 var imageProcess = express_1.default.Router();
 imageProcess.get('/', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var fileName, width, height, isFileExist, error;
+    var fileName, width, height, error;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 fileName = String(req.query.filename);
                 width = Number(req.query.width) || null;
                 height = Number(req.query.height) || null;
-                isFileExist = fileExist_1.default("thumb/" + fileName + ".jpg");
-                if (!(height && width && fileName)) return [3 /*break*/, 4];
-                if (!isFileExist) return [3 /*break*/, 2];
-                return [4 /*yield*/, resizeImage_1.default({
+                if (!(height && width && fileName)) return [3 /*break*/, 2];
+                return [4 /*yield*/, writeData_1.default({
                         fileName: fileName,
                         width: width,
                         height: height
                     })];
             case 1:
                 _a.sent();
-                res.status(200).sendFile(path_1.default.join(__dirname, '../../', 'thumb', "/" + fileName + ".jpg"));
-                _a.label = 2;
-            case 2: return [4 /*yield*/, writeData_1.default({
-                    fileName: fileName,
-                    width: width,
-                    height: height
-                })];
-            case 3:
-                _a.sent();
-                res.status(200).sendFile(path_1.default.join(__dirname, '../../', 'thumb', "/" + fileName + ".jpg"));
-                return [3 /*break*/, 5];
-            case 4:
+                res.status(200).sendFile(path_1.default.join(__dirname, '../../', 'thumb', "/" + fileName + "-" + width + "-" + height + ".jpg"));
+                return [3 /*break*/, 3];
+            case 2:
                 error = new Error('Input format errors');
                 next(error);
                 res.status(404).send("Error Input Format");
                 return [2 /*return*/];
-            case 5: return [2 /*return*/];
+            case 3: return [2 /*return*/];
         }
     });
 }); });

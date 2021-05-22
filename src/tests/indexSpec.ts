@@ -7,9 +7,11 @@ import getRandomInt from '../utilities/getRandomInt';
 
 //Test single image file
 describe("image file", () => {
-    it('should run correctly on imageProcess function correctly',async (done) => {
-        const result = await request(app).get(`/image-process?filename=test&width=${getRandomInt(1000)}&height=${getRandomInt(1000)}`).send();
-        expect(result).toBeTruthy(true);
+    const height = getRandomInt(1500)
+    const width = getRandomInt(1500)
+    it('should generate image with random width and height on imageProcess function correctly',async (done) => {
+        const testFile = await request(app).get(`/image-process?filename=test&width=${width}&height=${height}`).send();
+        expect(fileExist(`testFile-${width}-${height}.jpg`)).toBe(true)
         done();
     });
 

@@ -31,7 +31,9 @@ npm start
 yarn start
  ```
 
-Step 3: Process images
+Step 3: Go to your browser: [http://localhost:3002](http://localhost:3002)
+
+Step 4: Process images
 
 Choose one of image file name and type width and height.
 Moreover, you can choose optimized all of image files as well.

@@ -1,9 +1,16 @@
 import express, {Application} from 'express';
 import routes from './routes/index';
 import path from "path";
+import fs from 'fs';
 
 export const app:Application = express();
-const port = 3000;
+const port = 3002;
+
+const dir = './thumb'
+
+if (!fs.existsSync(dir)){
+   fs.mkdirSync(dir);
+}
 
 app.use(express.static('public'));
 

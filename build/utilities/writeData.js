@@ -40,24 +40,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var sharp_1 = __importDefault(require("sharp"));
+var fileExist_1 = __importDefault(require("./fileExist"));
 var writeData = function (imageData) { return __awaiter(void 0, void 0, void 0, function () {
-    var result, err_1;
+    var isFileExist, result, result, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                isFileExist = fileExist_1.default("thumb/" + imageData.fileName + "-" + imageData.width + "-" + imageData.height + ".jpg");
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 6, , 7]);
+                if (!!isFileExist) return [3 /*break*/, 3];
                 return [4 /*yield*/, sharp_1.default("images/" + imageData.fileName + ".jpg")
                         .resize(imageData.width, imageData.height, { fit: "contain" })
                         .jpeg({ quality: 100 })
-                        .toFile("thumb/" + imageData.fileName + ".jpg")];
-            case 1:
+                        .toFile("thumb/" + imageData.fileName + "-" + imageData.width + "-" + imageData.height + ".jpg")];
+            case 2:
                 result = _a.sent();
                 return [2 /*return*/, result];
-            case 2:
+            case 3: return [4 /*yield*/, sharp_1.default("thumb/" + imageData.fileName + "-" + imageData.width + "-" + imageData.height + ".jpg")
+                    .resize(imageData.width, imageData.height, { fit: "contain" })
+                    .jpeg({ quality: 100 })
+                    .toFile("thumb/" + imageData.fileName + "-" + imageData.width + "-" + imageData.height + ".jpg")];
+            case 4:
+                result = _a.sent();
+                return [2 /*return*/, result];
+            case 5: return [3 /*break*/, 7];
+            case 6:
                 err_1 = _a.sent();
                 console.log(err_1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };
